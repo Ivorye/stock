@@ -1,0 +1,60 @@
+spring:
+  application:
+    name: YML stockMacket
+    welc: welcome you to come here YML
+
+person:
+  user-name: 张起灵
+  username1: zhouquan
+  boss: true
+  birth: 2020/09/10 13:14:15
+  age: 18
+  pet:
+
+    name: 金毛犬
+
+    weight: 13.14
+
+  interests: [ 篮球,足球,排球 ]
+
+  animal:
+
+    - Dog
+
+    - Pig
+
+    - Cat
+
+  score:
+
+    Chinese: [ 98,99,100 ]
+
+    Math:
+
+      first: 60
+
+      second: 65
+
+      third: 70
+
+    English: { do: 11, does: 22, did: 33 }
+
+    History:
+
+      - Han Dynasty
+
+      - Tang Dynasty
+
+      - Qing Dynasty
+
+  salary: [ 5555,6666,7777 ]
+
+  all-pets:
+
+    sick:
+
+      - { name: 牧羊犬, weight: 20.5 }
+
+      - { name: 导盲犬, weight: 18.1 }
+
+    health: [ { name: 藏獒, weight: 44.4 },{ name: 萨摩耶, weight: 28.5 } ]
