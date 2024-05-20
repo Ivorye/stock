@@ -2,7 +2,7 @@ package com.example.stock.common.entity;
 
 import java.util.Date;
 
-public class gphistory {
+public class Gphistory {
     private Date tradeDate;
     private Double openp;
     private Double high;
