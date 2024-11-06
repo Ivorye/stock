@@ -1,8 +1,6 @@
 package com.example.stock.common.controller;
 
-import com.example.stock.common.entity.Gphistory;
 import com.example.stock.common.entity.Stock;
-import com.example.stock.common.entity.Stocks;
 import com.example.stock.common.entity.TransactionDetail;
 import com.example.stock.common.mapper.GphistoryMapper;
 import com.example.stock.common.mapper.StockMapper;
@@ -12,8 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -24,6 +20,7 @@ public class PolicyController {
     @Autowired
     StockMapper stockMapper;
 
+    /*eg: http://localhost:8081/stocks/20daysup30 means that stock increased 30% in 20 days */
     @GetMapping("/stocks/{period}daysup{ratio}")
     public List<String> getUpRation(@PathVariable int period, @PathVariable double ratio){
         List<Stock> stocks = stockMapper.getAll();
@@ -38,7 +35,7 @@ public class PolicyController {
             double rate = 1 + ratio/100.00;
             if (price2>price1*rate){
                 i++;
-                System.out.println(table+"list size:"+ list1.size()+"~"+list1.get(list1.size()-1).getTradeDate()+
+                System.out.println(table+"@ list size:"+ list1.size()+"~"+list1.get(list1.size()-1).getTradeDate()+
                         "~"+price1+"||"+ list1.get(0).getTradeDate()+"~"+price2+" *"+rate+"||"+i);
                 stockList.add(string);
             }

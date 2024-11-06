@@ -31,7 +31,7 @@ public class StockController {
     }
 
     @RequestMapping(path = "/stock/gp")
-    public Stocks getBasicStock(@RequestParam("symbol") String code){
+    public List<Stocks> getBasicStock(@RequestParam("symbol") String code){
         return stocksRepository.findBySymbol(code);
     }
 }
