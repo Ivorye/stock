@@ -14,7 +14,7 @@ public class Gp873833Controller {
 
     @RequestMapping(path = "/daily/gp873833")
     public Iterable<Gp873833> getAllDailies() {
-        System.out.println("find all daily info...");
+        System.out.println("find all daily info, records"+dailyInfo.count());
         return dailyInfo.findAll();
     }
 //    @RequestMapping(path = "/basic/gp873833",params = "873833")
