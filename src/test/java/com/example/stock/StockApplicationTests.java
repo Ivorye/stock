@@ -1,28 +1,29 @@
 package com.example.stock;
 
-import com.example.stock.common.entity.Stocks;
-import com.example.stock.common.service.StocksRepository;
+import com.example.stock.common.entity.Stock;
+import com.example.stock.common.mapper.StockMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.SQLException;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@MapperScan("com.example.stock.common.mapper")
 class StockApplicationTests {
 
 	@Autowired
-	StocksRepository stocksRepository;
+	StockMapper stockMapper;
 	@Test
 	void getStockBySymbol(){
-		Stocks stocks = stocksRepository.findBySymbol("000001");
-
-		System.out.println("printing:"+stocks.getSymbol()+stocks.getFullname()+ stocks.getListDate());
+		List<Stock> stocks = stockMapper.getAll();
+		for (Stock stock:stocks) {
+			System.out.println("printing:"+stock.getSymbol());
+		}
 	}
 //	void contextLoads() throws SQLException {
 //		System.out.println(dataSource.getConnection());
